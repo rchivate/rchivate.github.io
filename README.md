@@ -1,16 +1,13 @@
-## Hi there 👋
+# Riya Chivate
 
-<!--
-**rchivate/rchivate** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+student & developer tinkering with machine learning, data pipelines, and building fun, useful AI experiments.
+🎓 **studying:** artificial intelligence & data science @ UNC Charlotte.
 
-Here are some ideas to get you started:
+### tech & stack
+- **languages:** Python, Java, SQL
+- **data & ML:** Pandas, NumPy, Scikit-learn, Matplotlib
+- **tools & workflows:** Git, GitHub, Jupyter Notebooks, VS Code
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### get in touch with me:
+- **email:** `rchivate@charlotte.edu`
+- **website:** [rchivate.github.io](https://rchivate.github.io)
