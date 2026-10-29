@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riya Chivate</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #111;
+      --accent: #ff4785;
+      --border: 2px solid #111;
+      --shadow: 4px 4px 0px #111;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.85rem;
+      padding: 3px 8px;
+      margin-bottom: 1rem;
+      border: var(--border);
+      box-shadow: 2px 2px 0px #111;
+    }
+
+    .box {
+      border: var(--border);
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 1rem 0 1.5rem 0;
+    }
+
+    .tag {
+      border: 1px solid #111;
+      padding: 3px 8px;
+      font-size: 0.8rem;
+      background: #fff;
+      font-family: monospace;
+    }
+
+    ul.links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 1rem 0;
+    }
+
+    ul.links a, .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #fff;
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: var(--border);
+      box-shadow: 2px 2px 0px #111;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    ul.links a:hover, .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0px #111;
+      background: #fdf590;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border: var(--border);
+      box-shadow: 3px 3px 0px #111;
+    }
+
+    .project-card {
+      border: var(--border);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: #fff;
+    }
+
+    .project-card h4 {
+      margin: 0 0 0.35rem 0;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      font-family: monospace;
+      color: #666;
+      border-top: 1px dashed #bbb;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="badge">UNC CHARLOTTE • DATA SCIENCE & AI</div>
+
+  <h1>Jnaana Labs</h1>
+  <p>The goal of this collective project is to gather information through meticulous research about the library of knowledge that exists within the culture rooted in Sanatana Dharma. Sanatana Dharma encompasses the cultures that exist within modern-day Hinduism, Sikhism, Jainism, Buddhism, etc. The west has adopted many aspects of this culture, but not without changing them significantly. For example, what was once a spiritual, individual experience, is now a 1 billion dollar industry. Yes, yoga! The goal of this project is to detangle the core concepts of this philosophy and really understand the presented knowledge down to its core without inflicting any sort of judgement.</p>
+
+  <div class="tags">
+    <span class="tag">natural language processing</span>
+    <span class="tag">omputer vision</span>
+    <span class="tag">large language models</span>
+    <span class="tag">machine learning</span>
+    <span class="tag">python</span>
+  </div>
+
+  <div class="box">
+    <h2>About the projects</h2>
+    <p>All of the projects in this initiative aim to display the knowledge in its most authentic form. There is no emotional or patriotic attachment. All the knowledge used to develop these projects is available to reference. The research is properly cited to ensure facts rooted deep in science. Rather than proving Indian philosophy using western science, these projects display the depth of knowledge that was discovered centuries before and outlining the logic behind it all. All the research for these projects is done with a bottom up approach to eliminate any confirmation bias that may come up innately while reverse engineering.</p>
+  </div>
+
+  <h3>JnaanaLabs Projects</h3>
+
+  <div class="project-card">
+    <h4>Namaste Yogi: Yoga Pose detector</h4>
+    <p>Computer Vision project that detects yoga postures live</p>
+    <p>Provide live audio feedback to the user</p>
+    <p>Can wake up on the sound of ‘namaste yogi’</p>
+    <p>Building a dataset from scratch that records different yoga asanas (focusing on suryanamaskar at the moment)</p>
+    <a href="https://github.com/rchivate/yogasana-app" class="btn" target="_blank">View Repo ↗</a>
+  </div>
+
+  <div class="project-card">
+    <h4>Sanskrit Edu Tools</h4>
+    <p>Researching through credible sources and explaining concepts in plain english while staying true to the intention</p>
+    <p>Eliminating emotion behind the topics, and providing straightforward facts in English</p>
+    <p>Making sure that the sources are clearly cited</p>
+    <p>Eliminating the 'black box' by displaying the grammatical breakdown of the sentence</p>
+    <p>Two different projects: Translator & Accurate Translations and defnitions data curation & collection</p>
+    <a href="https://github.com/rchivate/sanskrit-edu-tools" class="btn" target="_blank">View Repo ↗</a>
+  </div>
+
+  <div class="project-card">
+    <h4>Global Vedic Calendar</h4>
+    <p>Understand the logic behind the Vedic Calendar</p>
+    <p>Understand why the Vedic Calendar (i.e. Kalnirnay) is only relevant in India</p>
+    <p>Figure out the logic behind calculating for different regions and consolidate that logic in an app using Kalnirnay as the control</p>
+    <a href="https://github.com/rchivate/sanskrit-edu-tools" class="btn" target="_blank">View Repo ↗</a>
+  </div>
+
+ 
+
+  <footer>
+    <p>thanks for stopping by.</p>
+  </footer>
+
+</body>
+</html>
