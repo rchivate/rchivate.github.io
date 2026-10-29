@@ -10,4 +10,4 @@ student & developer tinkering with machine learning, data pipelines, and buildin
 
 ### get in touch with me:
 - **email:** `rchivate@charlotte.edu`
-- **website:** [rchivate.github.io](https://rchivate.github.io)
+- **website:** ([rchivate.github.io](https://rchivate.github.io/rchivate/))
