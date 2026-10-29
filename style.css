@@ -26,6 +26,10 @@
       margin-bottom: 0.5rem;
     }
 
+    h1 {
+        align-items: center;
+    }
+
     .badge {
       display: inline-block;
       background: #ffb703;
@@ -94,6 +98,24 @@
       transform: translate(-2px, -2px);
       box-shadow: 4px 4px 0px #111;
       background: #fdf590;
+    }
+
+    /* Optional styling to make it look clean and well-spaced */
+    .project-bullets {
+    list-style-type: disc;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin: 0.5rem 0;
+    line-height: 1.2;
+    color: #374151; /* Dark gray for readability */
+    }
+
+    .project-bullets li {
+    margin-bottom: 1.2rem;
+    }
+
+    .project-bullets strong {
+    color: #111827; /* Darker emphasis */
     }
 
     .photo-grid {
