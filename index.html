@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riya Chivate</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #111;
+      --accent: #ff4785;
+      --border: 2px solid #111;
+      --shadow: 4px 4px 0px #111;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.85rem;
+      padding: 3px 8px;
+      margin-bottom: 1rem;
+      border: var(--border);
+      box-shadow: 2px 2px 0px #111;
+    }
+
+    .box {
+      border: var(--border);
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 1rem 0 1.5rem 0;
+    }
+
+    .tag {
+      border: 1px solid #111;
+      padding: 3px 8px;
+      font-size: 0.8rem;
+      background: #fff;
+      font-family: monospace;
+    }
+
+    ul.links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 1rem 0;
+    }
+
+    ul.links a, .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #fff;
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: var(--border);
+      box-shadow: 2px 2px 0px #111;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    ul.links a:hover, .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0px #111;
+      background: #fdf590;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border: var(--border);
+      box-shadow: 3px 3px 0px #111;
+    }
+
+    .project-card {
+      border: var(--border);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: #fff;
+    }
+
+    .project-card h4 {
+      margin: 0 0 0.35rem 0;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      font-family: monospace;
+      color: #666;
+      border-top: 1px dashed #bbb;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="badge">UNC CHARLOTTE • DATA SCIENCE & AI</div>
+
+  <h1>riya chivate</h1>
+  <p>Data science student and developer tinkering with machine learning, data pipelines, and building fun, useful AI experiments.</p>
+
+  <div class="tags">
+    <span class="tag">python</span>
+    <span class="tag">pandas</span>
+    <span class="tag">numpy</span>
+    <span class="tag">machine learning</span>
+    <span class="tag">data pipelines</span>
+    <span class="tag">git</span>
+  </div>
+
+  <h3>links ↴</h3>
+  <ul class="links">
+    <li><a href="https://github.com/rchivate" target="_blank">GitHub</a></li>
+    <li><a href="https://linkedin.com/in/riyachivate" target="_blank">LinkedIn</a></li>
+    <li><a href="mailto:rchivate@charlotte.edu">Email</a></li>
+  </ul>
+
+  <!-- Replace placeholder src with your image filenames once added to the repo -->
+  <div class="photo-grid">
+    <img src="me.jpg" alt="Photo of Riya">
+    <img src="project.jpg" alt="Project snapshot or code">
+    <img src="campus.jpg" alt="Campus or conference snapshot">
+  </div>
+
+  <div class="box">
+    <h2>Current Focus / Highlight</h2>
+    <p>A brief 1–2 sentence overview of your favorite project, research topic, or whatever you are actively building right now.</p>
+    <a href="https://github.com/rchivate" class="btn" target="_blank">View Repo ↗</a>
+  </div>
+
+  <h3>Selected Projects</h3>
+
+  <div class="project-card">
+    <h4>Project Title One</h4>
+    <p>Predictive model or data pipeline built with Python and Pandas to analyze patterns and surface actionable insights.</p>
+    <a href="https://github.com/rchivate" target="_blank">GitHub ↗</a>
+  </div>
+
+  <div class="project-card">
+    <h4>Project Title Two</h4>
+    <p>Interactive tool or machine learning experiment exploring data processing, model tuning, and evaluation.</p>
+    <a href="https://github.com/rchivate" target="_blank">GitHub ↗</a>
+  </div>
+
+  <footer>
+    <p>built with raw html/css. zero bloat. see you at the conference.</p>
+  </footer>
+
+</body>
+</html>
