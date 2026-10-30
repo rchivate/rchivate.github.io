@@ -1,143 +1,593 @@
+/* Keep @import on line 1 (or swap it for a <link> in your HTML). */
+@import url("https://fonts.googleapis.com/css2?family=Yatra+One&family=Kalam:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+Devanagari:wght@400..700&display=swap");
+
 :root {
-      --bg: #fafafa;
-      --text: #111;
-      --accent: #ff4785;
-      --border: 2px solid #111;
-      --shadow: 4px 4px 0px #111;
-    }
+  --night: #160b0a;      /* temple-lamp dark */
+  --yellow: #ffd60a;     /* big-header yellow */
+  --marigold: #ffb81c;   /* genda phool */
+  --saffron: #ff7a1a;
+  --kumkum: #c8102e;     /* vermilion */
+  --maroon: #5a0f1c;
+  --sandal: #fff1d0;     /* sandalwood paper */
+  --peacock: #0f6b6b;
 
-    * {
-      box-sizing: border-box;
-    }
+  --border: 3px solid var(--night);
+  --display: "Yatra One", "Bricolage Grotesque", Georgia, serif;
+  --hand: "Kalam", "Segoe Print", "Bradley Hand", cursive;
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem;
-      line-height: 1.6;
-    }
+  /* paper grain */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .35 0 0 0 -.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
-    h1, h2, h3 {
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.5rem;
-    }
+  /* marigold garland: red thread with strung flowers */
+  --garland: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='38' viewBox='0 0 32 38'%3E%3Crect width='32' height='3' fill='%23c8102e'/%3E%3Cg fill='%23ffb81c' stroke='%23160b0a' stroke-width='.8'%3E%3Ccircle cx='22.36' cy='26.36' r='5.5'/%3E%3Ccircle cx='9.64' cy='26.36' r='5.5'/%3E%3Ccircle cx='9.64' cy='13.64' r='5.5'/%3E%3Ccircle cx='22.36' cy='13.64' r='5.5'/%3E%3C/g%3E%3Cg fill='%23ff9a1a' stroke='%23160b0a' stroke-width='.8'%3E%3Ccircle cx='25' cy='20' r='5.5'/%3E%3Ccircle cx='16' cy='29' r='5.5'/%3E%3Ccircle cx='7' cy='20' r='5.5'/%3E%3Ccircle cx='16' cy='11' r='5.5'/%3E%3C/g%3E%3Ccircle cx='16' cy='20' r='8' fill='%23ffd60a' stroke='%23160b0a' stroke-width='.8'/%3E%3Ccircle cx='16' cy='20' r='4.2' fill='%23ff8c1a'/%3E%3Ccircle cx='16' cy='20' r='1.8' fill='%23c8102e'/%3E%3C/svg%3E");
 
-    h1 {
-        align-items: center;
-    }
+  /* torn washi edges */
+  --torn: polygon(0 0, 100% 0, 95% 25%, 100% 50%, 95% 75%, 100% 100%, 0 100%, 5% 75%, 0 50%, 5% 25%);
+}
 
-    .badge {
-      display: inline-block;
-      background: #ffb703;
-      color: #000;
-      font-weight: bold;
-      font-size: 0.85rem;
-      padding: 3px 8px;
-      margin-bottom: 1rem;
-      border: var(--border);
-      box-shadow: 2px 2px 0px #111;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .box {
-      border: var(--border);
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
+/* ---------- page: jali lattice + garland ---------- */
 
-    .project-card {
-      border: var(--border);
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-      background: #fff;
-    }
+html {
+  background-color: var(--night);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 184, 28, 0.09) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(-45deg, rgba(255, 184, 28, 0.09) 0 1px, transparent 1px 28px);
+  overflow-x: clip; /* corner tape can overhang without causing sideways scroll */
+}
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 1rem 0 1.5rem 0;
-    }
+body {
+  font-family: "Bricolage Grotesque", "Noto Sans Devanagari", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  color: var(--sandal);
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4.75rem 1.25rem 3.5rem;
+  line-height: 1.6;
+}
 
-    .tag {
-      border: 1px solid #111;
-      padding: 3px 8px;
-      font-size: 0.8rem;
-      background: #fff;
-      font-family: monospace;
-    }
+/* marigold garland across the top */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background-image: var(--garland);
+  background-size: 32px 38px;
+  background-repeat: repeat-x;
+  z-index: 100;
+  pointer-events: none;
+}
 
-    ul.links {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 1rem 0;
-    }
+a {
+  color: var(--marigold);
+  text-underline-offset: 3px;
+}
 
-    ul.links a, .btn {
-      display: inline-block;
-      padding: 6px 12px;
-      background: #fff;
-      color: #111;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: var(--border);
-      box-shadow: 2px 2px 0px #111;
-      transition: transform 0.1s, box-shadow 0.1s;
-    }
+:is(.box, .project-card) a {
+  color: var(--night);
+  font-weight: 700;
+}
 
-    ul.links a:hover, .btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0px #111;
-      background: #fdf590;
-    }
+::selection {
+  background: var(--marigold);
+  color: var(--night);
+}
 
-    /* Optional styling to make it look clean and well-spaced */
-    .project-bullets {
-    list-style-type: disc;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    margin: 0.5rem 0;
-    line-height: 1.2;
-    color: #374151; /* Dark gray for readability */
-    }
+.box ::selection {
+  background: var(--night);
+  color: var(--marigold);
+}
 
-    .project-bullets li {
-    margin-bottom: 1.2rem;
-    }
+/* ---------- headings ---------- */
 
-    .project-bullets strong {
-    color: #111827; /* Darker emphasis */
-    }
+h1, h2, h3 {
+  margin: 0 0 0.75rem;
+  line-height: 1.1;
+}
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin: 1.5rem 0;
-    }
+/* h1: back to the original look */
+h1 {
+  font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.6rem, 9vw, 4.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--yellow);
+  text-shadow: 4px 4px 0 #5c4b00;
+}
 
-    .photo-grid img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border: var(--border);
-      box-shadow: 3px 3px 0px #111;
-    }
+/* h2 = painted banner */
+h2 {
+  display: inline-block;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  background: var(--marigold);
+  color: var(--night);
+  padding: 0.15em 0.7em;
+  border: var(--border);
+  box-shadow: 4px 4px 0 var(--kumkum);
+  transform: rotate(-1.5deg);
+  margin-bottom: 1.25rem;
+}
 
-    footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      font-family: monospace;
-      color: #666;
-      border-top: 1px dashed #bbb;
-      padding-top: 1rem;
-    }
+h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.4rem;
+  text-decoration: underline wavy;
+  text-decoration-color: var(--saffron);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+:is(.box, .project-card) h1 {
+  color: var(--night);
+  text-shadow: 3px 3px 0 var(--saffron);
+}
+
+:is(.box, .project-card) h2 {
+  background: var(--night);
+  color: var(--marigold);
+  box-shadow: 4px 4px 0 var(--saffron);
+}
+
+:is(.box, .project-card) h3 {
+  text-decoration-color: var(--kumkum);
+}
+
+/* ---------- sticker badge: a tilak dot ---------- */
+
+.badge {
+  display: inline-block;
+  background: var(--kumkum);
+  color: var(--sandal);
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 4px 14px;
+  margin-bottom: 1.25rem;
+  border: 2px solid var(--night);
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px var(--sandal);
+  transform: rotate(-4deg);
+}
+
+/* ---------- cards: paper taped to the page ---------- */
+
+.box,
+.project-card {
+  position: relative;
+  border: var(--border);
+  padding: 1.75rem 1.5rem 1.5rem;
+  margin: 2.75rem 0;
+  color: var(--night);
+  transform: rotate(var(--tilt, -0.6deg));
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  /* inner dotted frame, like a carved panel border */
+  outline: 2px dotted rgba(22, 11, 10, 0.5);
+  outline-offset: -11px;
+  --photo-shadow: var(--night);
+}
+
+:is(.box, .project-card):nth-of-type(odd) { --tilt: -0.7deg; }
+:is(.box, .project-card):nth-of-type(even) { --tilt: 0.9deg; }
+
+.box:hover,
+.project-card:hover {
+  transform: rotate(0deg) translate(-3px, -3px);
+}
+
+/* washi tape, top: block-print dots, torn ends */
+.box::before,
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 124px;
+  height: 30px;
+  z-index: 2;
+  pointer-events: none;
+  clip-path: var(--torn);
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+:is(.box, .project-card):nth-of-type(even)::before {
+  left: 24%;
+  transform: translateX(-50%) rotate(3deg);
+}
+
+/* washi tape, corner */
+.box::after,
+.project-card::after {
+  content: "";
+  position: absolute;
+  width: 104px;
+  height: 26px;
+  z-index: 2;
+  pointer-events: none;
+  clip-path: var(--torn);
+}
+
+.box::after {
+  top: 12px;
+  right: -28px;
+  transform: rotate(45deg);
+}
+
+.project-card::after {
+  bottom: 12px;
+  left: -28px;
+  transform: rotate(45deg);
+}
+
+/* marigold paper */
+.box {
+  background-color: var(--marigold);
+  background-image: var(--grain);
+  box-shadow: 6px 6px 0 var(--kumkum);
+}
+
+.box:hover {
+  box-shadow: 10px 10px 0 var(--kumkum);
+}
+
+/* tape prints: kumkum + sandal dots */
+.box::before {
+  background-color: var(--kumkum);
+  background-image:
+    radial-gradient(circle, var(--sandal) 1.5px, transparent 2px),
+    radial-gradient(circle, var(--sandal) 1.5px, transparent 2px);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  box-shadow: inset 0 4px 0 var(--sandal), inset 0 -4px 0 var(--sandal);
+}
+
+/* dark tape, marigold dots */
+.box::after {
+  background-color: var(--night);
+  background-image:
+    radial-gradient(circle, var(--marigold) 1.5px, transparent 2px),
+    radial-gradient(circle, var(--marigold) 1.5px, transparent 2px);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  box-shadow: inset 0 3px 0 var(--marigold), inset 0 -3px 0 var(--marigold);
+}
+
+/* sandalwood paper with a kolam dot grid */
+.project-card {
+  background-color: var(--sandal);
+  background-image:
+    var(--grain),
+    radial-gradient(rgba(200, 16, 46, 0.22) 1.5px, transparent 2px);
+  background-size: 160px 160px, 24px 24px;
+  box-shadow: 5px 5px 0 var(--saffron);
+}
+
+.project-card:hover {
+  box-shadow: 9px 9px 0 var(--saffron);
+}
+
+/* peacock tape, marigold dots */
+.project-card::before {
+  background-color: var(--peacock);
+  background-image:
+    radial-gradient(circle, var(--marigold) 1.5px, transparent 2px),
+    radial-gradient(circle, var(--marigold) 1.5px, transparent 2px);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  box-shadow: inset 0 4px 0 var(--marigold), inset 0 -4px 0 var(--marigold);
+}
+
+/* marigold tape, kumkum dots */
+.project-card::after {
+  background-color: var(--marigold);
+  background-image:
+    radial-gradient(circle, var(--kumkum) 1.5px, transparent 2px),
+    radial-gradient(circle, var(--kumkum) 1.5px, transparent 2px);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  box-shadow: inset 0 3px 0 var(--kumkum), inset 0 -3px 0 var(--kumkum);
+}
+
+/* optional: <div class="box inverse"> for a dark card */
+.box.inverse {
+  background-color: var(--night);
+  color: var(--marigold);
+  border-color: var(--marigold);
+  box-shadow: 6px 6px 0 var(--marigold);
+  outline-color: rgba(255, 184, 28, 0.5);
+  --photo-shadow: var(--marigold);
+}
+
+.box.inverse:hover {
+  box-shadow: 10px 10px 0 var(--marigold);
+}
+
+.box.inverse::after {
+  background-color: var(--kumkum);
+  background-image:
+    radial-gradient(circle, var(--sandal) 1.5px, transparent 2px),
+    radial-gradient(circle, var(--sandal) 1.5px, transparent 2px);
+  box-shadow: inset 0 3px 0 var(--sandal), inset 0 -3px 0 var(--sandal);
+}
+
+.box.inverse a { color: var(--marigold); }
+.box.inverse h1 { color: var(--yellow); text-shadow: 3px 3px 0 #5c4b00; }
+.box.inverse h2 { background: var(--marigold); color: var(--night); box-shadow: 4px 4px 0 var(--kumkum); }
+.box.inverse h3 { text-decoration-color: var(--saffron); }
+
+/* ---------- tags: painted labels ---------- */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 8px;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.tag {
+  border: 2px solid var(--night);
+  background: var(--sandal);
+  color: var(--night);
+  padding: 0 11px;
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.5;
+  transform: rotate(-2deg);
+}
+
+.tag:nth-child(4n + 2) {
+  background: var(--saffron);
+  transform: rotate(1.5deg);
+}
+
+.tag:nth-child(4n + 3) {
+  background: var(--peacock);
+  color: var(--sandal);
+  transform: rotate(-0.8deg);
+}
+
+.tag:nth-child(4n) {
+  background: var(--night);
+  color: var(--marigold);
+  border-color: var(--marigold);
+  transform: rotate(1deg);
+}
+
+/* ---------- buttons / links ---------- */
+
+ul.links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 1.25rem 0;
+}
+
+ul.links a,
+.btn {
+  display: inline-block;
+  padding: 7px 14px;
+  background: var(--marigold);
+  color: var(--night);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: var(--border);
+  box-shadow: 3px 3px 0 var(--kumkum);
+  transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+}
+
+ul.links a:hover,
+.btn:hover {
+  transform: translate(-2px, -2px) rotate(-1deg);
+  box-shadow: 6px 6px 0 var(--kumkum);
+  background: var(--sandal);
+}
+
+/* on paper: flip to dark buttons */
+:is(.box, .project-card) :is(ul.links a, .btn) {
+  background: var(--night);
+  color: var(--marigold);
+  box-shadow: 3px 3px 0 var(--saffron);
+}
+
+:is(.box, .project-card) :is(ul.links a, .btn):hover {
+  background: var(--saffron);
+  color: var(--night);
+  box-shadow: 6px 6px 0 var(--night);
+}
+
+.box.inverse :is(ul.links a, .btn) {
+  background: var(--marigold);
+  color: var(--night);
+  border-color: var(--marigold);
+  box-shadow: 3px 3px 0 var(--kumkum);
+}
+
+.box.inverse :is(ul.links a, .btn):hover {
+  background: var(--sandal);
+  box-shadow: 6px 6px 0 var(--kumkum);
+}
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--sandal);
+  outline-offset: 3px;
+}
+
+:is(.box, .project-card) :focus-visible {
+  outline-color: var(--night);
+}
+
+/* ---------- bullets: little diamonds ---------- */
+
+.project-bullets {
+  list-style: none;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin: 0.5rem 0;
+  line-height: 1.35;
+  color: var(--night);
+}
+
+.project-bullets li {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.project-bullets li::before {
+  content: "";
+  position: absolute;
+  left: -1.4rem;
+  top: 0.4em;
+  width: 9px;
+  height: 9px;
+  background: var(--kumkum);
+  transform: rotate(45deg);
+}
+
+/* haldi-yellow highlighter */
+.project-bullets strong {
+  color: var(--night);
+  background: linear-gradient(transparent 55%, var(--marigold) 55%);
+}
+
+.box .project-bullets strong {
+  background: linear-gradient(transparent 55%, var(--sandal) 55%);
+}
+
+/* ---------- extras (optional classes) ---------- */
+
+/* handwritten margin note: <span class="note">psst, read this</span> */
+.note {
+  display: inline-block;
+  font-family: var(--hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--marigold);
+  transform: rotate(-3deg);
+}
+
+:is(.box, .project-card) .note { color: var(--maroon); }
+.box.inverse .note { color: var(--marigold); }
+
+/* round seal pinned to a card corner: <span class="sticker">new</span> */
+.sticker {
+  position: absolute;
+  top: -26px;
+  right: -14px;
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  line-height: 1;
+  background: var(--kumkum);
+  color: var(--sandal);
+  border: 3px solid var(--night);
+  border-radius: 50%;
+  outline: 2px dotted var(--sandal);
+  outline-offset: -9px;
+  transform: rotate(12deg);
+  z-index: 3;
+}
+
+/* ---------- photos: polaroids ---------- */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 22px 18px;
+  margin: 2rem 0;
+}
+
+.photo-grid img {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  padding: 10px 10px 40px;
+  background: var(--sandal);
+  border: 2px solid var(--night);
+  box-shadow: 5px 5px 0 var(--photo-shadow, var(--marigold));
+  transform: rotate(-2.5deg);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.photo-grid img:nth-child(4n + 2) { transform: rotate(2deg); margin-top: 14px; }
+.photo-grid img:nth-child(4n + 3) { transform: rotate(-1deg); }
+.photo-grid img:nth-child(4n)     { transform: rotate(3deg); margin-top: 10px; }
+
+.photo-grid img:hover {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow: 8px 8px 0 var(--photo-shadow, var(--marigold));
+  z-index: 5;
+}
+
+/* ---------- footer: carved molding ---------- */
+
+footer {
+  position: relative;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 6px double var(--marigold);
+  font-family: var(--hand);
+  font-size: 1.15rem;
+  color: var(--marigold);
+  text-align: center;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--kumkum);
+  box-shadow: 0 0 0 6px var(--night);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* ---------- small screens + reduced motion ---------- */
+
+@media (max-width: 560px) {
+  .box,
+  .project-card {
+    padding: 1.75rem 1.25rem 1.25rem;
+    margin: 2.5rem 0;
+  }
+
+  .box::after { right: -20px; }
+  .project-card::after { left: -20px; }
+
+  .project-bullets {
+    padding-left: 1.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .sticker {
+    right: -6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
