@@ -1,0 +1,802 @@
+/* ==========================================================
+   RESEARCH / BLOG PAGES
+   Load AFTER styles-journal.css, and add class="research" to <body>.
+   The whole page becomes notebook paper: ruled lines, margin line,
+   binder holes. Everything sits on a 2rem (32px) line grid, so text
+   lands on the rules.
+   ========================================================== */
+
+/* ---------- the notebook itself ---------- */
+
+:root {
+      --torn: polygon(0 0, 100% 0, 97% 25%, 100% 50%, 97% 75%, 100% 100%, 0 100%, 3% 75%, 0 50%, 3% 25%);
+}
+
+html:has(body.research) {
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(transparent 0 calc(2rem - 1px), rgba(74, 106, 138, 0.2) calc(2rem - 1px) 2rem),
+    var(--grain);
+  background-size: auto, 160px 160px;
+}
+
+/* binder holes down the left edge */
+html:has(body.research)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 14px;
+  width: 24px;
+  z-index: 1;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 12px 50%, var(--night) 0 6px, rgba(74, 52, 43, 0.35) 6px 7.5px, transparent 8.5px);
+  background-size: 24px 33.334vh;
+  background-repeat: repeat-y;
+}
+
+body.research {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 1.25rem 4rem 4.5rem; /* 6rem top = 3 ruled rows */
+  color: var(--ink);
+  font-size: 1.125rem;
+  line-height: 2rem;
+  counter-reset: sec fig;
+}
+
+/* double red margin line */
+body.research::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3.25rem;
+  width: 2px;
+  background: rgba(181, 71, 63, 0.38);
+  box-shadow: 5px 0 0 rgba(181, 71, 63, 0.2);
+  pointer-events: none;
+}
+
+/* ---------- headings: each level looks different ---------- */
+
+/* h1: page title, ink on a yellow highlighter band */
+body.research h1 {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 2rem;
+  font-size: clamp(2.2rem, 6.5vw, 3.5rem);
+  line-height: 4rem;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  text-shadow: none;
+  background: linear-gradient(transparent 52%, rgba(255, 214, 10, 0.7) 52% 90%, transparent 90%) 0 0 / 100% 4rem repeat-y;
+}
+
+/* h2: numbered section, underlined on the rule */
+body.research h2 {
+  display: block;
+  margin: 4rem 0 2rem;
+  padding: 0;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  color: var(--ink);
+  background: linear-gradient(90deg, var(--terracotta) 0 55%, transparent 55%) 0 100% / 100% 2px no-repeat;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+  counter-increment: sec;
+}
+
+body.research h2::before {
+  content: counter(sec, decimal-leading-zero);
+  display: inline-block;
+  margin-right: 0.7rem;
+  padding: 0 0.45rem;
+  font-family: var(--hand);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--terracotta);
+  border: 1.5px dashed var(--terracotta);
+  transform: rotate(-3deg) translateY(-2px);
+}
+
+/* opt out of numbering: <h2 class="plain"> */
+body.research h2.plain {
+  counter-increment: none;
+}
+
+body.research h2.plain::before {
+  display: none;
+}
+
+/* h3: blue-pen handwriting, dotted underline */
+body.research h3 {
+  margin: 2rem 0 0;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 1.55rem;
+  line-height: 2rem;
+  color: var(--pen);
+  text-decoration: underline dotted;
+  text-decoration-color: rgba(181, 71, 63, 0.6);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+/* h4: small-caps label with a trailing line */
+body.research h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  line-height: 2rem;
+  color: var(--clay);
+}
+
+body.research h4::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(138, 90, 72, 0.4);
+}
+
+/* ---------- text ---------- */
+
+body.research p {
+  margin: 0 0 2rem;
+}
+
+/* optional intro paragraph with a drop cap: <p class="lede"> */
+body.research .lede::first-letter {
+  float: left;
+  margin-right: 0.5rem;
+  font-family: var(--display);
+  font-size: 3.5rem;
+  line-height: 4rem;
+  color: var(--terracotta);
+}
+
+body.research a:not(.btn):not(ul.links a) {
+  color: var(--terracotta);
+  text-decoration-color: rgba(181, 71, 63, 0.4);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+body.research a:not(.btn):not(ul.links a):hover {
+  background: rgba(230, 194, 122, 0.45);
+  text-decoration-color: var(--terracotta);
+}
+
+body.research mark {
+  background: linear-gradient(transparent 55%, rgba(230, 194, 122, 0.7) 55%);
+  color: inherit;
+  padding: 0 2px;
+}
+
+body.research sup {
+  font-family: var(--hand);
+  font-size: 0.85em;
+  line-height: 0;
+  color: var(--terracotta);
+}
+
+/* date + meta line under the title: <p class="meta"> */
+body.research .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  font-family: var(--hand);
+  font-size: 1.1rem;
+  color: var(--pen);
+}
+
+body.research .tags {
+  margin: 0 0 2rem;
+}
+
+body.research .badge {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.2rem 0.9rem;
+  background: rgba(181, 71, 63, 0.15);
+  border: 1.5px solid rgba(181, 71, 63, 0.6);
+  border-radius: 999px;
+  color: var(--clay);
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+
+body.research .box,
+body.research .project-card {
+  position: relative;
+  margin: 0 0 2rem;
+  padding: 1.5rem 1.25rem 1.25rem 3.75rem;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(74, 52, 43, 0.32);
+  box-shadow: 4px 4px 0 rgba(74, 52, 43, 0.16);
+}
+
+body.research .box {
+  background-image:
+    radial-gradient(circle at 1.1rem 16%, var(--night) 0 5px, rgba(74, 52, 43, 0.35) 5px 6.5px, transparent 7.5px),
+    radial-gradient(circle at 1.1rem 50%, var(--night) 0 5px, rgba(74, 52, 43, 0.35) 5px 6.5px, transparent 7.5px),
+    radial-gradient(circle at 1.1rem 84%, var(--night) 0 5px, rgba(74, 52, 43, 0.35) 5px 6.5px, transparent 7.5px),
+    linear-gradient(90deg, transparent calc(3rem - 1px), rgba(181, 71, 63, 0.38) calc(3rem - 1px) calc(3rem + 1px), transparent calc(3rem + 1px)),
+    repeating-linear-gradient(transparent 0 calc(2rem - 1px), rgba(74, 52, 43, 0.08) calc(2rem - 1px) 2rem),
+    var(--grain);
+  background-size: auto, auto, auto, auto, auto, 160px 160px;
+}
+
+body.research .project-card {
+  background-image:
+    radial-gradient(rgba(74, 52, 43, 0.18) 1.2px, transparent 1.7px),
+    linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)),
+    var(--grain);
+  background-size: 22px 22px, auto, 160px 160px;
+}
+
+body.research .box::before,
+body.research .project-card::before {
+  content: "";
+  position: absolute;
+  top: -0.8rem;
+  left: 50%;
+  width: 6.5rem;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.72);
+  clip-path: var(--torn);
+  transform: translateX(-50%) rotate(-2deg);
+  pointer-events: none;
+}
+
+body.research .box > :last-child,
+body.research .project-card > :last-child {
+  margin-bottom: 0;
+}
+
+body.research .box h2,
+body.research .project-card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+  color: var(--ink);
+}
+
+body.research .box h2::before,
+body.research .project-card h2::before {
+  display: none;
+}
+
+body.research .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+  margin: 0 0 1.25rem;
+}
+
+body.research .tag {
+  display: inline-block;
+  padding: 0.15rem 0.7rem;
+  border: 1.5px solid rgba(74, 52, 43, 0.35);
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--ink);
+  font-family: var(--hand);
+  font-size: 1rem;
+  font-weight: 700;
+  transform: rotate(-2deg);
+}
+
+body.research .tag:nth-child(4n + 2) { background: rgba(232, 196, 189, 0.7); transform: rotate(1.5deg); }
+body.research .tag:nth-child(4n + 3) { background: rgba(201, 212, 189, 0.7); transform: rotate(-1deg); }
+body.research .tag:nth-child(4n) { background: rgba(188, 210, 207, 0.6); transform: rotate(1deg); }
+
+body.research .project-bullets {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+body.research .project-bullets li {
+  position: relative;
+  margin-bottom: 0.65rem;
+  line-height: 1.7;
+}
+
+body.research .project-bullets li::before {
+  content: "";
+  position: absolute;
+  left: -1.1rem;
+  top: 0.55rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--terracotta);
+  transform: rotate(45deg);
+}
+
+body.research .btn {
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--clay);
+  color: #fff;
+  border: 1.5px solid rgba(74, 52, 43, 0.3);
+  box-shadow: 3px 3px 0 rgba(74, 52, 43, 0.18);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+body.research .btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 rgba(74, 52, 43, 0.18);
+  background: var(--terracotta);
+}
+
+/* ---------- lists ---------- */
+
+body.research :is(ul, ol):not(.links, .tags, .project-bullets) {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+body.research :is(ul, ol):not(.links, .tags, .project-bullets) :is(ul, ol) {
+  margin: 0;
+}
+
+body.research :is(ul, ol):not(.links, .tags, .project-bullets) > li {
+  position: relative;
+  padding-left: 2rem;
+  line-height: 2rem;
+}
+
+/* ul: terracotta diamonds, hollow when nested */
+body.research ul:not(.links, .tags, .project-bullets) > li::before {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 0.85rem;
+  width: 9px;
+  height: 9px;
+  background: var(--terracotta);
+  opacity: 0.85;
+  transform: rotate(45deg);
+}
+
+body.research ul ul:not(.links, .tags) > li::before {
+  background: transparent;
+  border: 1.5px solid var(--terracotta);
+  width: 8px;
+  height: 8px;
+}
+
+/* ol: handwritten numbers in circles */
+body.research ol {
+  counter-reset: rn;
+}
+
+body.research ol > li {
+  counter-increment: rn;
+  padding-left: 2.4rem;
+}
+
+body.research ol > li::before {
+  content: counter(rn);
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--terracotta);
+  border: 1.5px solid var(--terracotta);
+  border-radius: 50%;
+}
+
+/* checklist: <ul class="checklist"><li class="done">…</li></ul> */
+body.research ul.checklist > li::before {
+  left: 0.2rem;
+  top: 0.55rem;
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  border: 2px solid var(--clay);
+  border-radius: 3px;
+  opacity: 1;
+  transform: none;
+}
+
+body.research ul.checklist > li.done {
+  color: rgba(74, 52, 43, 0.6);
+  text-decoration: line-through;
+  text-decoration-color: rgba(181, 71, 63, 0.5);
+}
+
+body.research ul.checklist > li.done::before {
+  background: var(--sage);
+}
+
+body.research ul.checklist > li.done::after {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 0.6rem;
+  width: 5px;
+  height: 10px;
+  border: solid var(--ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* definition list */
+body.research dl {
+  margin: 0 0 2rem;
+}
+
+body.research dt {
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 2rem;
+  color: var(--terracotta);
+}
+
+body.research dd {
+  margin: 0 0 0 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px dashed rgba(138, 90, 72, 0.4);
+}
+
+/* ---------- quotes ---------- */
+
+body.research blockquote {
+  position: relative;
+  isolation: isolate;
+  margin: 0 0 2rem;
+  padding: 0 0 0 1.5rem;
+  border-left: 3px solid var(--rose);
+  font-family: var(--hand);
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: var(--pen);
+}
+
+body.research blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.6rem;
+  left: 0.6rem;
+  z-index: -1;
+  font-family: var(--display);
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(232, 196, 189, 0.6);
+}
+
+body.research blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+body.research blockquote cite {
+  display: block;
+  font-size: 1rem;
+  font-style: normal;
+  color: var(--clay);
+}
+
+/* ---------- code ---------- */
+
+body.research :not(pre) > code {
+  padding: 0.05em 0.4em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  color: var(--terracotta);
+  background: rgba(138, 90, 72, 0.13);
+  border-radius: 4px;
+}
+
+body.research pre {
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 2rem;
+  color: var(--ink);
+  background: #fbf3e3;
+  outline: 1.5px dashed rgba(138, 90, 72, 0.6);
+  outline-offset: -7px;
+  box-shadow: 4px 4px 0 rgba(74, 52, 43, 0.2);
+}
+
+body.research pre code {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+/* ---------- tables ---------- */
+
+body.research table {
+  width: 100%;
+  margin: 0 0 2rem;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+  line-height: 2rem;
+}
+
+body.research th,
+body.research td {
+  padding: 0 0.75rem;
+  text-align: left;
+}
+
+body.research th {
+  font-family: var(--hand);
+  font-size: 1.1rem;
+  color: var(--ink);
+  background: rgba(232, 196, 189, 0.55);
+}
+
+body.research tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+body.research caption {
+  caption-side: bottom;
+  padding-top: 0.5rem;
+  text-align: left;
+  font-family: var(--hand);
+  color: var(--pen);
+}
+
+/* ---------- figures ---------- */
+
+body.research figure {
+  margin: 0 0 2rem;
+}
+
+body.research figure img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background: #fbf6ea;
+  box-shadow: 4px 4px 0 rgba(74, 52, 43, 0.28);
+  transform: rotate(-0.6deg);
+}
+
+body.research figcaption {
+  counter-increment: fig;
+  padding-top: 1rem;
+  text-align: center;
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  line-height: 2rem;
+  color: var(--pen);
+}
+
+body.research figcaption::before {
+  content: "Fig. " counter(fig) " \2014  ";
+  color: var(--terracotta);
+}
+
+/* ---------- callouts: sticky notes ---------- */
+/* <div class="callout key" data-label="key finding">…</div>
+   variants: (none) = note, .key, .warn, .idea */
+
+body.research .callout {
+  position: relative;
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  color: var(--ink);
+  background: var(--sticky, #f4e7bd);
+  box-shadow: inset 0 0 0 1.5px rgba(74, 52, 43, 0.28), 4px 4px 0 rgba(74, 52, 43, 0.25);
+  transform: rotate(-0.4deg);
+}
+
+body.research .callout.key  { --sticky: #dfe8d2; }
+body.research .callout.warn { --sticky: #f1d5cc; }
+body.research .callout.idea { --sticky: #d5e5e3; }
+
+body.research .callout::before {
+  content: attr(data-label);
+  display: block;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 2rem;
+  color: var(--clay);
+}
+
+body.research .callout:not([data-label])::before {
+  display: none;
+}
+
+/* plain white washi tape */
+body.research .callout::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 96px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.72);
+  clip-path: var(--torn);
+  transform: translateX(-50%) rotate(-2deg);
+  pointer-events: none;
+}
+
+body.research .callout > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- collapsible notes ---------- */
+
+body.research details {
+  margin: 0 0 2rem;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.35);
+  outline: 1.5px dashed rgba(138, 90, 72, 0.5);
+  outline-offset: -6px;
+}
+
+body.research summary {
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 2rem;
+  color: var(--clay);
+  cursor: pointer;
+}
+
+/* ---------- divider: line with a diamond ---------- */
+
+body.research hr {
+  height: 2rem;
+  margin: 0 0 2rem;
+  border: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M7 0l7 7-7 7-7-7z' fill='%23b5473f'/%3E%3C/svg%3E") center / 14px 14px no-repeat,
+    linear-gradient(90deg, transparent, rgba(138, 90, 72, 0.45) 15% 85%, transparent) center / 100% 1px no-repeat;
+}
+
+/* ---------- footnotes ---------- */
+/* <section class="footnotes"><ol><li>…</li></ol></section> */
+
+body.research .footnotes {
+  font-size: 0.92rem;
+  color: var(--clay);
+}
+
+/* ---------- footer on paper ---------- */
+
+body.research footer {
+  color: var(--clay);
+  border-top-color: rgba(138, 90, 72, 0.4);
+}
+
+body.research footer::before {
+  box-shadow: 0 0 0 6px var(--paper);
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 560px) {
+  body.research {
+    padding: 6rem 1rem 3rem 3.25rem;
+    font-size: 1.0625rem;
+  }
+
+  body.research::after {
+    left: 2.4rem;
+  }
+
+  html:has(body.research)::before {
+    left: 6px;
+  }
+
+  body.research h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================================
+   STICKY NOTE  (.sticky-note)
+   Plain yellow note with washi tape on top.
+   ========================================================== */
+
+body.research .sticky-note {
+  position: relative;
+  width: min(18rem, 100%);
+  height:auto;
+  min-height: 15rem;
+  margin: 2rem 1rem 2rem;
+  padding: 2.5rem 1.75rem 1.5rem;
+  background: rgb(255, 208, 0);
+  border: 1.5px solid rgba(74, 52, 43, 0.32);
+  box-shadow: 4px 4px 0 rgba(74, 52, 43, 0.16);
+  border-radius: 2px;
+  transform: rotate(-1deg);
+}
+
+/* sticky notes flow side by side and wrap */
+body.research .notes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;      /* notes in the same row share a height */
+  gap: 2rem 1.5rem;
+  margin: 2rem 0;
+}
+
+body.research .notes .sticky-note {
+  flex: 0 1 18rem;           /* 18rem wide, can shrink on narrow screens */
+  width: auto;
+  margin: 0;                 /* the gap handles spacing now */
+}
+
+/* slight alternating tilt so they feel hand-placed */
+body.research .notes .sticky-note:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+/* washi tape (shared with .box) */
+body.research .box::before,
+body.research .sticky-note::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 112px;
+  height: 28px;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.72);
+  clip-path: var(--torn);
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+/* text inside */
+/* text inside */
+body.research .sticky-note p {
+  margin: 0;
+  font-family: var(--hand);
+  font-weight: 500;
+  font-size: 1rem;        /* handwriting fonts run small, so nudge it up */
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+body.research .sticky-note p + p {
+  margin-top: 1rem;
+}
+
+/* optional: the Sanskrit phrase in blue pen, the meaning in ink */
+body.research .sticky-note strong {
+  color: var(--brown-pen);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
