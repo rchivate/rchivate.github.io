@@ -1,75 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vidyaa Vana Labs - Yoga Research</title>
-
-  <!-- Devanagari font -->
-  <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hindu Calendar · Panchang notes</title>
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../../research.css">
 </head>
 <body class="research">
-  <h1>Yoga Research</h1>
-  <p>This project focuses on researching and understanding the principles and practices of yoga.</p>
+<main>
 
-  <h2>Definitions of Yoga</h2>
+  <h1>Hindu Calendar</h1>
+  <p class="meta"><span>Vidya Vana · info dump</span></p>
 
-<h3>Bhagavad Gita</h3>
-<div class="notes">
-  <div class="sticky-note">
-  <p>
-    <strong>"samatvam yoga uchyate"</strong><br>
-    yoga is a state of harmony
-  </p>
-</div>
+  <blockquote class="shloka">यथा पिण्डे तथा ब्रह्माण्डे ।<cite>As is the microcosm (the body), so is the macrocosm (the universe)</cite></blockquote>
 
-  <div class="sticky-note">
-    <p>
-      <strong>"yogaH karmasu kaushalam"</strong><br>
-      yoga is a skill of working: Wise person abandons judgement of good and bad and focuses on the skill in performing actions.
-    </p>
+  <p>The panchang (panchanga) splits time into five limbs:</p>
+
+  <ol>
+    <li>Tithi</li>
+    <li>Vara</li>
+    <li>Nakshatra</li>
+    <li>Yoga</li>
+    <li>Karana</li>
+  </ol>
+
+  <p>Source: <a href="https://astro-solaris.com/panchang-the-five-limbs-of-time/">Panchang – The Five Limbs of Time (Astro Solaris)</a></p>
+
+  <!-- ===================== TITHI ===================== -->
+
+  <h2 id="tithi">Tithi</h2>
+
+  <div class="callout key" data-label="the idea">
+    <p>1 day = 1/30th of a revolution of the moon = 1 tithi</p>
   </div>
-</div>
-<h4>Types of Karma:</h4>
-<ul>
-  <li><strong>Karma</strong> - doing the action</li>
-  <li><strong>Akarma</strong> - not doing the action</li>
-  <li><strong>Vikarma</strong> - i dont want to do but forced to do</li>
-</ul>
 
-<h3>Yoga Sutra</h3>
-<div class="notes">
-  <div class="sticky-note">
-    <p>
-      <strong>"yogaH chitta vRtti nirodhaH"</strong><br>
-      yoga is mastery over mind
-    </p>
-  </div>
-</div>
+  <p>It takes the moon 29.5 days to go around the Earth.</p>
 
-<h3>Yoga Vasishtha</h3>
-<div class="notes">
-  <div class="sticky-note">
-    <p><strong>"manaH prasamana upayaH"</strong></p>
-    <p>Technique to calm the mind</p>
-  </div>
-</div>
-
-  <p>Real Nature (normal): happy and peaceful</p>
-
-  <h2>पञ्चकोशः (pa~nchakoshaH)</h2>
   <ul>
-    <li>अन्नमयकोशः (annamayakoshaH) - the physical body</li>
-    <li>प्राणमयकोशः (prANamayakoshaH) - the energy body</li>
-    <li>मनमयकोशः (manomayakoshaH) - emotions</li>
-    <li>विज्ञानमयकोशः (vij~nnamayakoshaH) - intelligence</li>
-    <li>आनन्दमयकोशः (aanandamayakoshaH) - bliss</li>
+    <li>Full moon to new moon, the phase changes by 180 degrees, and then 180 degrees the other way, which equals 360 degrees</li>
+    <li>Divide that by 30 and you get 12 degrees</li>
+    <li>1 tithi = the amount of time it takes for the phase of the moon to shift by 12 degrees</li>
+    <li>How did they calculate that?
+      <ul>
+        <li>If you have the moon, sun and Earth, you calculate the angle of the sun and moon as seen from Earth</li>
+        <li>New moon: the angle of the sun and the moon in relation to the Earth is zero
+          <figure>
+            <img src="images/tithi-new-moon.png" width="1421" height="485" alt="Diagram: the moon on its elliptical orbit around Earth, lined up between Earth and the sun, so the sun–moon angle is zero.">
+            <figcaption>New moon: sun and moon at 0° from Earth</figcaption>
+          </figure>
+        </li>
+        <li>The moon goes around the Earth to the full moon phase (halfway) = 180 degrees (15 days later)
+          <figure>
+            <img src="images/tithi-full-moon.png" width="1421" height="458" alt="Diagram: the moon on the opposite side of Earth from the sun, so the sun–moon angle is 180 degrees.">
+            <figcaption>Full moon: 180°, about 15 days later</figcaption>
+          </figure>
+        </li>
+        <li>Tithi = calculate the angle between the sun and moon: 0–12, 12–24, …</li>
+        <li>Can be between 19 and 27 hours because of the moon’s elliptical orbit around the Earth</li>
+        <li>Look at the tithi. If it goes over two days, count the day that contains the sunrise</li>
+        <li>2 sunrises? It starts before a sunrise and it’s a 26 hr tithi (usually celebrate the first day)</li>
+        <li>If it starts after sunrise and stops before the next sunrise, it’s sometimes skipped</li>
+      </ul>
+    </li>
   </ul>
 
-  <footer>
+  <h3>Diwali</h3>
+
+  <ul>
+    <li>Diwali is connected to Ammavasya</li>
+    <li>Time before and after sunrise/sunset is called pradosh</li>
+  </ul>
+
+  <!-- ===================== ADHIK MAAS ===================== -->
+
+  <h2 class="plain" id="adhik-maas">Concept of Adhik Maas</h2>
+
+  <ul>
+    <li>As mentioned in the slides, each month in the Hindu calendar has 29.5 days (we round to 30 for math purposes), and 12 lunar months (a year) = 354ish days, so you are 11 days short → the calendar shifts with respect to the seasons</li>
+    <li>Calculate the <mark>month by the moon</mark></li>
+    <li>Calculate the <mark>year by the sun</mark></li>
+    <li>Took the entire sky and sliced it into 30 degrees each (zodiac, named by constellation)</li>
+    <li>1/12 sun shifts from one zodiac to the next = <mark>sankranti</mark></li>
+    <li>Every time you get a month with zero sankrantis, you insert an <mark>adhik maas</mark> and call it the name of the next month (adhik-kartik…)</li>
+    <li>Adhik maas does not have a sankranti</li>
+    <li>Every 3ish years has an adhik</li>
+  </ul>
+
+  <div class="callout idea" data-label="vs. the Gregorian calendar">
+    <p>You add a day every four years (overcorrection), but then every 100 years it is not a leap year (undercorrection); every 400 years is a leap year.</p>
+  </div>
+
+  <table>
+    <caption>Calendar used by region</caption>
+    <thead>
+      <tr><th>Region</th><th>Calendar</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>North</td><td>Poornimanta</td></tr>
+      <tr><td>Middle</td><td>Amaanta</td></tr>
+      <tr><td>Kerala and Tamil Nadu</td><td>Solar calendar</td></tr>
+      <tr><td>West Bengal, Odisha and Assam</td><td>Combination of solar and lunar</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===================== VARA ===================== -->
+
+  <h2 id="vara">Vara</h2>
+
+  <p>Reference: <a href="https://www.youtube.com/watch?v=1Pz9L7PDmg4">Ancient Indian Logic for Sequence of Weekdays | Origin of 7 Weekdays | Prachyam</a></p>
+
+  <ul>
+    <li>Hour comes from <em>hora</em>, which comes from <em>ahoratra</em></li>
+    <li>Arrange the navagrahas (the 7 celestial objects visible to the naked eye) from slowest to fastest:</li>
+  </ul>
+
+  <ol>
+    <li>Shani (Saturn)</li>
+    <li>Guru (Jupiter)</li>
+    <li>Mangal (Mars)</li>
+    <li>Ravi (Sun)</li>
+    <li>Shukra (Venus)</li>
+    <li>Buddha (Mercury)</li>
+    <li>Soma (Moon)</li>
+  </ol>
+
+  <p>In the order from slowest to fastest, assign each graha to an hour of the day. Once 24 hours are covered, start a new column. The first hour of the day signifies the leading graha of the day, hence the name.</p>
+
+  <figure>
+    <img src="images/hora-table.jpg" width="1171" height="944" alt="Table of 24 hours down the side and seven columns, one per weekday, listing which graha rules each hour. The graha in the first hour of each column gives that day its name.">
+    <figcaption>Hora table: the first hour of each column names the day</figcaption>
+  </figure>
+
+  <p>Each day is broken up into 30 muhurtas.</p>
+
+  <h3>Where did 24 hours come from?</h3>
+
+  <blockquote class="shloka">लघूनि वै समाम्नाता दश पञ्च च नाडिका ।<br>ते द्वे मुहूर्तः प्रहरः षड्यामः सप्त वा नृणाम् ॥<cite>तृतीया स्कन्ध, 11th chapter, 8th shloka, श्रीमद्भागवतम्</cite></blockquote>
+
+  <div class="callout warn" data-label="to fill in">
+    <p>Meaning: (blank in the original notes)</p>
+  </div>
+
+  <blockquote class="shloka">सप्तैते होरेशाः शनैश्चराद्या यथाक्रमं शीघ्राः ।<br>शीघ्रक्रमाच्चतुर्था भवन्ति सूर्योदयाद् दिनपाः ॥<cite>आर्यभटीया कल्क्रियापद १६</cite></blockquote>
+
+  <h3>Dinpati</h3>
+
+  <table>
+    <thead>
+      <tr><th>Vara</th><th>Graha</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ravivara</td><td>Sun</td></tr>
+      <tr><td>Somavara</td><td>Moon</td></tr>
+      <tr><td>Mangalvara</td><td>Mars</td></tr>
+      <tr><td>Budhavara</td><td>Mercury</td></tr>
+      <tr><td>Guruvara</td><td>Jupiter</td></tr>
+      <tr><td>Shukravara</td><td>Venus</td></tr>
+      <tr><td>Shanivara</td><td>Saturn</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ===================== NAKSHATRA ===================== -->
+
+  <h2 id="nakshatra">Nakshatra</h2>
+
+  <ol class="cols">
+    <li>Ashwini</li>
+    <li>Bharani</li>
+    <li>Krittika</li>
+    <li>Rohini</li>
+    <li>Mrigashira</li>
+    <li>Ardra</li>
+    <li>Punarvasu</li>
+    <li>Pushya</li>
+    <li>Ashlesha</li>
+    <li>Magha</li>
+    <li>Purva Phalguni</li>
+    <li>Uttara Phalguni</li>
+    <li>Hasta</li>
+    <li>Chitra</li>
+    <li>Swati</li>
+    <li>Vishakha</li>
+    <li>Anuradha</li>
+    <li>Jyeshtha</li>
+    <li>Mula</li>
+    <li>Purva Ashadha</li>
+    <li>Uttara Ashadha</li>
+    <li>Shravana</li>
+    <li>Dhanishta</li>
+    <li>Shatabhisha</li>
+    <li>Purva Bhadrapada</li>
+    <li>Uttara Bhadrapada</li>
+    <li>Revati</li>
+  </ol>
+
+  <!-- ===================== YOGA / KARANA ===================== -->
+
+  <h2 id="yoga">Yoga</h2>
+
+  <div class="callout" data-label="to fill in">
+    <p>Notes not written yet.</p>
+  </div>
+
+  <h2 id="karana">Karana</h2>
+
+  <div class="callout" data-label="to fill in">
+    <p>Notes not written yet.</p>
+  </div>
+
+</main>
+
+<footer>
     <p>thanks for stopping by.</p>
     <a href="../landing.html" class="btn">← vidyaa vana</a>
   </footer>
